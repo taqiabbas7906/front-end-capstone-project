@@ -1,13 +1,107 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap');
+:root{
+  --font-primary: 'Markazi Text', serif;
+  --font-secondary: 'Karla', sans-serif;
+  --clr-primary:#495E57;
+  --clr-secondary:#F4CE14;
+  --clr-neutral-100:#ffff;
+  --clr-neutral-200:#D9D9D9;
+  --clr-neutral-300:#000000;
+}
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  color: black;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  --max-width: 860px;
+  --horizontal-margin: 1rem;
+
+  max-width: min(var(--max-width), 100% - (var(--horizontal-margin) * 2));
+  margin-inline: auto;
+  transition: filter .2s ease;
+}
+/* Navbar */
+header{
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+.headerLogo{
+  width: 210px;
+  height: 57px;
+}
+.navbar{
+  display: flex;
+  justify-content: end;
+}
+.navbarLinks{
+  display: flex;
+}
+.navLink{
+  margin: 1rem;
+  color: var(--clr-neutral-300);
+}
+.navLink a{
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  font-size: 18px;
+}
+.navbarHamburger{
+  display: none;
+  outline: none;
+  scale: 2;
+  margin: 1rem;
+  border: none;
+  background-color: transparent;
+}
+@media (max-width: 800px) {
+  .container {
+  --max-width: 90vw;
+  --horizontal-margin: 1rem;
+
+  max-width: min(var(--max-width), 100% - (var(--horizontal-margin) * 2));
+  margin-inline: auto;
+  transition: filter .2s ease;
+}
+  header{
+    height: 60px;
+  }
+  .headerLogo{
+    margin: 1rem;
+    width: 150px;
+    height: 40px;
+  }
+  .navbarLinks.active{
+    top: -100vw;
+  }
+  .navbarLinks{
+    display: flex;
+    flex-direction: column;
+    transition: all 500ms ease;
+    position: absolute;
+    top: 60px;
+    z-index: 99;
+    right: 0;
+    background-color: var(--clr-secondary);
+    width: 100vw;
+    align-items: center;
+  }
+  .navLink a{
+    border-bottom: 1px solid var(--clr-primary);
+  }
+  .navbarHamburger{
+    display: block;
+  }
+
 }
