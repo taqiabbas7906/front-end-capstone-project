@@ -1,12 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Hero from "./components/Hero";
+import Menu from "./components/Menu";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <div>hello</div>
+      <Hero />
+      <Menu />
       <Footer />
     </BrowserRouter>
   );

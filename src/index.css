@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap');
-:root{
-  --font-primary: 'Markazi Text', serif;
-  --font-secondary: 'Karla', sans-serif;
-  --clr-primary:#495E57;
-  --clr-secondary:#F4CE14;
-  --clr-neutral-100:#ffff;
-  --clr-neutral-200:#D9D9D9;
-  --clr-neutral-300:#000000;
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap");
+:root {
+  --font-primary: "Markazi Text", serif;
+  --font-secondary: "Karla", sans-serif;
+  --clr-primary: #495e57;
+  --clr-secondary: #f4ce14;
+  --clr-neutral-100: #ffff;
+  --clr-neutral-200: #d9d9d9;
+  --clr-neutral-300: #000000;
 }
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,92 +16,264 @@
   text-decoration: none;
   color: black;
 }
-
+.evenColumns {
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+}
+@media (min-width: 800px) {
+  .evenColumns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
 .container {
   --max-width: 860px;
   --horizontal-margin: 1rem;
-
+  height: 100%;
   max-width: min(var(--max-width), 100% - (var(--horizontal-margin) * 2));
   margin-inline: auto;
-  transition: filter .2s ease;
+  transition: filter 0.2s ease;
 }
 /* Navbar */
-header{
+header {
   width: 100%;
   height: 130px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 100;
 }
-.headerLogo{
+.headerLogo {
   width: 210px;
   height: 57px;
 }
-.navbar{
-  display: flex;
-  justify-content: end;
-}
-.navbarLinks{
+.navbar {
   display: flex;
 }
-.navLink{
-  margin: 1rem;
+.navbarLinks {
+  display: flex;
+}
+.navLink {
+  margin: 0.5rem;
   color: var(--clr-neutral-300);
 }
-.navLink a{
+.navLink a {
   font-family: var(--font-secondary);
   font-weight: 500;
   font-size: 18px;
 }
-.navbarHamburger{
+.navLink a:hover {
+  color: var(--clr-secondary);
+}
+.navbarHamburger {
   display: none;
   outline: none;
   scale: 2;
-  margin: 1rem;
   border: none;
   background-color: transparent;
 }
+.cartIcon {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin-inline: 2rem;
+}
+.cartIcon img {
+  width: 30px;
+}
 @media (max-width: 800px) {
   .container {
-  --max-width: 90vw;
-  --horizontal-margin: 1rem;
-
-  max-width: min(var(--max-width), 100% - (var(--horizontal-margin) * 2));
-  margin-inline: auto;
-  transition: filter .2s ease;
-}
-  header{
+    width: 90vw;
+  }
+  header {
     height: 60px;
   }
-  .headerLogo{
-    margin: 1rem;
+  .headerLogo {
     width: 150px;
     height: 40px;
   }
-  .navbarLinks.active{
-    top: -100vw;
+  .navLink a:hover {
+    color: var(--clr-neutral-300);
   }
-  .navbarLinks{
+  .navbarLinks.active {
+    top: -200vw;
+  }
+  .navbarLinks {
     display: flex;
     flex-direction: column;
     transition: all 500ms ease;
     position: absolute;
     top: 60px;
-    z-index: 99;
     right: 0;
+    z-index: 99;
     background-color: var(--clr-secondary);
     width: 100vw;
     align-items: center;
   }
-  .navLink a{
+  .navLink {
+    margin: 1rem;
+  }
+  .navLink:hover a {
     border-bottom: 1px solid var(--clr-primary);
   }
-  .navbarHamburger{
+  .navbarHamburger {
     display: block;
   }
+}
 
+/* Hero Section */
+
+.heroSection {
+  background-color: var(--clr-primary);
+  height: 400px;
+}
+.heroText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.heroText h1 {
+  color: var(--clr-secondary);
+  font-family: var(--font-primary);
+  font-size: 56px;
+}
+.heroText h2 {
+  color: var(--clr-neutral-100);
+  font-family: var(--font-primary);
+  font-size: 32px;
+}
+.heroText p {
+  color: var(--clr-neutral-100);
+  font-family: var(--font-secondary);
+  width: 300px;
+  font-weight: 700;
+  line-height: 140.625%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+.heroImg {
+  position: relative;
+}
+.heroPic {
+  position: absolute;
+  top: 20px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.button {
+  background-color: var(--clr-secondary);
+  outline: none;
+  border: none;
+  width: 200px;
+  height: 60px;
+  border-radius: 16px;
+  font-family: var(--font-secondary);
+  transition: all 200ms ease;
+  cursor: pointer;
+  color: var(--clr-neutral-300);
+  font-size: 18px;
+  font-weight: 500;
+}
+.button:hover{
+  background-color: var(--clr-primary);
+  border: 1px solid var(--clr-secondary);
+  color: var(--clr-secondary);
+}
+@media (max-width: 800px) {
+  .heroSection{
+    height: auto;
+  }
+  .heroText h1{
+    margin-top: 1rem;
+  }
+  .heroText p {
+    width: 100%;
+  }
+  .heroPic {
+    position: static;
+    width: 100%;
+    height: 300px;
+    margin-block: 1rem;
+  }
+}
+
+/* Menu */
+.topMenu{
+  display: flex;
+  justify-content: space-between;
+  margin-block: 5rem;
+}
+.topMenu h2{
+  font-family: var(--font-primary);
+  font-size: 40px;
+  font-weight: 500;
+}
+.menu{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.item{
+  background-color: var(--clr-neutral-200);
+  width: 264px;
+  border-radius: 16px 16px 0 0;
+}
+.itemImg img{
+  height: 185px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+.itemDetails{
+  display: grid;
+  grid-template-areas:
+  "title price"
+  "description description"
+  "button button"
+  ;
+  width: 80%;
+  margin-inline: auto;
+}
+.itemTitle{
+  grid-area: title;
+  align-self: center;
+  margin-block: 1rem;
+  font-size: 24px;
+  font-family: var(--font-primary);
+}
+.itemPrice{
+  font-weight: 700;
+  color: #EE9972;
+  align-self: center;
+  font-size: 16px;
+  text-align: end;
+  font-family: var(--font-secondary);
+  grid-area: price;
+}
+.itemDescription{
+  font-size: 16px;
+  height: 140px;
+  font-family: var(--font-secondary);
+  color: var(--clr-primary);
+  grid-area: description;
+}
+.itemDetails button{
+  margin-block: 1rem;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  font-family: var(--font-secondary);
+  grid-area: button;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+@media (max-width: 800px) {
+  .item{
+    width: 100%;
+    border-radius: 16px;
+  }
 }

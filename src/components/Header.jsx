@@ -1,4 +1,5 @@
 import logo from "../assets/logo.png"
+import basket from "../assets/Basket.svg"
 import { Link } from 'react-router-dom'
 import {GiHamburgerMenu} from  "react-icons/gi"
 import {AiOutlineClose} from "react-icons/ai"
@@ -22,7 +23,7 @@ const nav = [
 const Header = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
-        <div className="container">
+      <div className="container">
       <header>
         <img className="headerLogo" src={logo} alt="Little Lemon" />
         <nav className="navbar" >
@@ -37,6 +38,9 @@ const Header = () => {
                 })
               }
             </ul>
+        <button className="cartIcon">
+          <img src={basket} alt="basket" />
+        </button>
         <button
           className="navbarHamburger"
           type="button"
@@ -48,7 +52,7 @@ const Header = () => {
         </button>
         </nav>
     </header>
-        </div>
+    </div>
   )
 }
 
