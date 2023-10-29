@@ -1,16 +1,15 @@
-import React from 'react'
 
-const CompleteBooking = () => {
+import Button from "./Button";
+
+const CompleteBooking = (props) => {
   return (
-    <>
-        <div className="container">
-            <div className="completeBookingContainer">
-                <h4>Thanks For Reservation</h4>
-                <h3>Your table is will be reserved on {}</h3>
-            </div>
-        </div>
-    </>
-  )
-}
+    <div className="completeBookingContainer">
+      <h3>Thanks For Reservation</h3>
+      <h4>Your table is will be reserved on {props.date}</h4>
+      <p>We will send you the details in your email</p>
+     <Button to="/" text="Go to home"/>
+    </div>
+  );
+};
 
-export default CompleteBooking
+export default CompleteBooking;

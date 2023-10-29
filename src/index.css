@@ -609,3 +609,29 @@ input:disabled:hover{
     width: 100%;
   }
 }
+
+.completeBookingContainer{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-primary);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--clr-primary);
+  height: 400px;
+  margin: 3rem;
+  border-radius: 16px;
+}
+.completeBookingContainer p{
+ color: white;
+ font-size: 20px;
+}
+.completeBookingContainer h4{
+  color: white;
+  font-size: 26px;
+}
+.completeBookingContainer h3{
+  color: var(--clr-secondary);
+  font-size: 46px;
+}

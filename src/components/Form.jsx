@@ -9,14 +9,14 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
-    // props.submitForm(e);
+    props.submited(date)
+    props.submitForm(e);
   };
 
   const handleChange = (e) => {
     setDate(e);
-    dateValidation();
     props.dispatch(e);
+    dateValidation();
   };
 
   const guestValidation = () => {
@@ -78,7 +78,7 @@ const Form = (props) => {
             type="date"
             name="date"
             required={true}
-            className={dateValidation()&&"error"}
+            className={`${dateValidation()&&"error"}`}
             id="bookingDate"
             min={props.date}
             onChange={(e) => handleChange(e.target.value)}
@@ -111,7 +111,7 @@ const Form = (props) => {
             type="number"
             min={1}
             max={10}
-            className={guestValidation()&& "error"}
+            className={`${guestValidation() && "error"}`}
             onChange={(e) => {
               setGuests(e.target.value);
               guestValidation();
