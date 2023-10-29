@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Button from './Button'
 import Item from './Item'
 import greek from "../assets/greek salad.jpg"
@@ -37,7 +37,7 @@ const Menu = () => {
                 <div className="menu">
                     {menuItems.map((item)=>{
                         return(
-                        <Item title = {item.title} img = {item.img} description={item.description} price ={item.price}  />)
+                        <Item key={item.title} title = {item.title} img = {item.img} description={item.description} price ={item.price}  />)
                     })}
                 </div>
             </div>
